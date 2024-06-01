@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ThroughDansLens</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@100..900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!--NavBar Section-->
+    <nav class="navbar">
+        <div class="navbar__container">
+            <a href="/" id="navbar__logo">ThroughDansLens</a>
+            <div class="navbar__toggle" id="mobile-menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+            <ul class="navbar__menu">
+                <li class="navbar__item">
+                    <a href="/" class="navbar__links">Home</a>
+                </li>
+                <li class="navbar__item">
+                    <a href="#services" class="navbar__links">LifeStyle/Studio</a>
+                </li>
+                <li class="navbar__item">
+                    <a href="#services2" class="navbar__links">Prom Packages</a>
+                </li>
+                <li class="navbar__item">
+                    <a href="#services3" class="navbar__links">Grad Packages</a>
+                </li>
+                <li class="navbar__btn">
+                    <a href="#Contacts" class="button">CONNECT</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Picture section -->
+    <div class="main">
+        <div class="main__container">
+            <div class="main__content">
+                <h1><span>THROUGH</span> <span> DANLENS</span></h1>
+                <h2><span>PHOTOGRAPHY</span></h2>
+                <p><span>LifeStyle, Studio, Events</span></p>
+                <button class="main__btn book-btn">
+                    <a href="#">BOOK NOW</a>
+                </button>
+            </div>
+            <div class="main__img--container slideshow-container">
+ <!-- Slideshow Images -->
+ <div class="slideshow-container">
+    <div class="mySlides fade">
+        <img src="images/show.jpeg" alt="pic" style="width:100%">
+    </div>
+    <div class="mySlides fade">
+        <img src="images/ayo1.jpg" alt="pic" style="width:100%">
+    </div>
+    <div class="mySlides fade">
+        <img src="images/dec1.jpg" alt="pic" style="width:100%">
+    </div>
+    <div class="mySlides fade">
+        <img src="images/dennis2.jpg" alt="pic" style="width:100%">
+    </div>
+    <div class="mySlides fade">
+        <img src="images/tobi2.jpg" alt="pic" style="width:100%">
+    </div>
+    <div class="mySlides fade">
+        <img src="images/juan1.jpg" alt="pic" style="width:100%">
+    </div>
+    <div class="mySlides fade">
+        <img src="images/kc1.jpg" alt="pic" style="width:100%">
+    </div>
+    <div class="mySlides fade">
+        <img src="images/prince.jpg" alt="pic" style="width:100%">
+    </div>
+    <div class="mySlides fade">
+        <img src="images/freshpr.jpg" alt="pic" style="width:100%">
+    </div>
+</div>
+<br>
+            <br>
+            <div style="text-align:center">
+                
+            </div>
+        </div>
+    </div>
+
+    <!--Service1 Section-->
+    <div id="services" class="services">
+        <h1>LifeStyle/Studio</h1>
+        <div class="services__container">
+            <div class="services__card">
+                <h2>$115</h2>
+                <p>One Hour Session One location 10</p>
+                <button class="book-btn">BOOK</button>
+            </div>
+            <div class="services__card">
+                <h2>$200</h2>
+                <p>Studio Session One Hour</p>
+                <button class="book-btn">BOOK</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div id="bookingModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <h2>Book a Session</h2>
+            <form id="bookingForm" action="/booking" method="post">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+
+                <label for="occasion">Occasion:</label>
+                <input type="text" id="occasion" name="occasion" required>
+
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="phone">Phone:</label>
+                <input type="tel" id="phone" name="phone" required>
+
+                <label for="date">Date:</label>
+                <input type="date" id="date" name="date" required>
+
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+    </div>
+
+    <!--Service2 Section-->
+    <div id="services2" class="services2">
+        <h1>Prom Package</h1>
+        <div class="services2__container">
+            <div class="services2__card">
+                <h2>$165</h2>
+                <p>One Hour Session One location 10 edited pictures</p>
+                <button class="book-btn">BOOK</button>
+            </div>
+            <div class="services2__card">
+                <h2>$215</h2>
+                <p>One Hour Session, Including Send-Offs, Stop-Motion Videos</p>
+                <button class="book-btn">BOOK</button>
+            </div>
+        </div>
+    </div>
+
+    <!--Service3 Section-->
+    <div id="services3" class="services2">
+        <h1>Grad Package</h1>
+        <div class="services3__container">
+            <div class="services3__card">
+                <h2>$165</h2>
+                <p>One Hour Session One location 10 edited pictures</p>
+                <button class="book-btn">BOOK</button>
+            </div>
+            <div class="services3__card">
+                <h2>$215</h2>
+                <p>One Hour Session, Including Send-Offs, Stop-Motion Videos</p>
+                <button class="book-btn">BOOK</button>
+            </div>
+        </div>
+    </div>
+
+    <!--Footer Section-->
+    <div class="footer__container">
+        <div class="footer__links">
+            <div class="footer_links--wrapper">
+                <div class="footer__link--items">
+                    <h2></h2>
+                    <a href=""></a>
+                    <a href=""></a>
+                    <a href=""></a>
+                    <a href=""></a>
+                    <a href=""></a>
+                </div>
+                <div class="footer__link--items">
+                    <h2> </h2>
+                    <a href=""></a>
+                    <a href=""></a>
+                    <a href=""></a>
+                    <a href=""></a>
+                    <a href=""></a>
+                </div>
+            </div>
+            <div class="footer_links--wrapper">
+                <div class="footer__link--items">
+                    <h2></h2>
+                    <a href=""></a>
+                    <a href=""></a>
+                    <a href=""></a>
+                    <a href=""></a>
+                    <a href=""></a>
+                </div>
+                <div id="Contacts" class="footer__link--items">
+                    <h2>Contact</h2>
+                    <a href="mailto:throughdanslens1@gmail.com">Email: throughdanslens1@gmail.com</a>
+                    <a href="tel:+14436788048">Phone: 443-678-8048</a>
+                </div>
+            </div>
+        </div>
+        <div class="social__media">
+            <div class="social__media--wrap">
+                <div class="footer__logo">
+                    <a href="/" id="footer__logo"> <i class="fas faa-gem"></i>
+                        ThroughDansLens
+                    </a>
+                </div>
+                <p class="website__rights">© Daniel Odetoye 2024. All rights reserved</p>
+                <div class="social__icons">
+                    <a href="https://www.instagram.com/throughdanlens/" class="social__icon--link" target="_blank">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/in/daniel-odetoye-145738287" class="social__icon--link" target="_blank">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="client.js"></script>
+</body>
+</html>
