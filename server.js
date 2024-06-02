@@ -10,11 +10,6 @@ const app = express();
 const PORT = process.env.PORT || 8000;
 const MONGO_URL = process.env.MONGO_URL;
 
-console.log('MONGO_URL:', MONGO_URL);
-console.log('EMAIL_USER:', process.env.EMAIL_USER);
-console.log('EMAIL_PASS:', process.env.EMAIL_PASS);
-console.log('ALERT_EMAIL:', process.env.ALERT_EMAIL);
-
 app.use(bodyParser.json());
 app.use(express.static('public'));
 
@@ -28,14 +23,14 @@ app.use((req, res, next) => {
 
 mongoose.connect(MONGO_URL, { useNewUrlParser: true, useUnifiedTopology: true })
     .then(() => {
-        console.log('Database is connected successfully.');
+        console.log('Database connected successfully.');
         app.listen(PORT, () => {
-            console.log(`Server is running on port ${PORT}`);
+            console.log(`Server running on port ${PORT}`);
         });
     })
     .catch(error => {
         console.error('Failed to connect to MongoDB:', error);
-        process.exit(1); // Exit the process with failure
+        process.exit(1);
     });
 
 const bookingSchema = new mongoose.Schema({
@@ -63,7 +58,6 @@ app.post('/api/booking', async (req, res) => {
     console.log('Received booking request:', req.body);
 
     try {
-        // Check for existing booking with the same email and date
         const existingBooking = await Booking.findOne({ email, date });
         if (existingBooking) {
             console.error('Booking already exists for this email and date.');
