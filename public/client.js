@@ -92,11 +92,14 @@ document.addEventListener("DOMContentLoaded", function() {
                 modal.style.display = 'none';
                 bookingForm.reset();
             } else {
-                alert('Error submitting booking');
+                response.text().then(text => {
+                    alert('Error submitting booking: ' + text);
+                });
             }
         }).catch(error => {
             console.error('Error:', error);
-            alert('Error submitting booking');
+            alert('Error submitting booking: ' + error.message);
         });
     });
 });
+

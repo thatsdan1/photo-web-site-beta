@@ -66,6 +66,7 @@ app.post('/booking', async (req, res) => {
         // Check for existing booking with the same email and date
         const existingBooking = await Booking.findOne({ email, date });
         if (existingBooking) {
+            console.error('Booking already exists for this email and date.');
             return res.status(400).send('Booking already exists for this email and date.');
         }
 
