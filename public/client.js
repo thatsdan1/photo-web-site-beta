@@ -20,7 +20,6 @@ document.addEventListener("DOMContentLoaded", function() {
                 document.querySelector(hash).scrollIntoView({
                     behavior: 'smooth'
                 });
-                // Close the mobile menu after clicking a link
                 menu.classList.remove('is-active');
                 menuLinks.classList.remove('active');
             }
@@ -64,7 +63,7 @@ document.addEventListener("DOMContentLoaded", function() {
         if (dots[slideIndex - 1]) {
             dots[slideIndex - 1].className += " active";
         }
-        setTimeout(showSlides, 2000); // Change image every 2 seconds
+        setTimeout(showSlides, 2000);
     }
 
     // Handle form submission
@@ -99,4 +98,3 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     });
 });
-
