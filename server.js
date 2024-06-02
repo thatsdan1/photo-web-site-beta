@@ -40,14 +40,14 @@ mongoose.connect(MONGO_URL, { useNewUrlParser: true, useUnifiedTopology: true })
 const bookingSchema = new mongoose.Schema({
     name: { type: String, required: true },
     occasion: { type: String, required: true },
-    email: { type: String, required: true, match: /.+\@.+\..+/ },
-    phone: { type: String, required: true, match: /^[0-9]{10}$/ },
+    email: { type: String, required: true, unique: true, match: /.+\@.+\..+/ },
+    phone: { type: Number, required: true, min: 1000000000, max: 9999999999 },
     date: { type: String, required: true, match: /^\d{4}-\d{2}-\d{2}$/ }
 });
 
 const Booking = mongoose.model('Booking', bookingSchema);
 
-app.get('/api/getInfo', async (req, res) => {
+app.get('/getInfo', async (req, res) => {
     try {
         const bookings = await Booking.find();
         res.json(bookings);
@@ -57,7 +57,7 @@ app.get('/api/getInfo', async (req, res) => {
     }
 });
 
-app.post('/api/submit-form', async (req, res) => {
+app.post('/booking', async (req, res) => {
     const { name, occasion, email, phone, date } = req.body;
     console.log('Received booking request:', req.body);
 
@@ -103,5 +103,3 @@ app.post('/api/submit-form', async (req, res) => {
         res.status(500).send('Error: ' + err);
     }
 });
-
-export default app;
