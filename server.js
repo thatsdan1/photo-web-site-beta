@@ -16,7 +16,7 @@ console.log('EMAIL_PASS:', process.env.EMAIL_PASS);
 console.log('ALERT_EMAIL:', process.env.ALERT_EMAIL);
 
 app.use(bodyParser.json());
-app.use(express.static('public')); // Serve static files from 'public' directory
+app.use(express.static('public'));
 
 // Enable CORS if needed
 app.use((req, res, next) => {
@@ -25,7 +25,6 @@ app.use((req, res, next) => {
     next();
 });
 
-// MongoDB Connection
 mongoose.connect(MONGO_URL, { useNewUrlParser: true, useUnifiedTopology: true })
     .then(() => {
         console.log('Database is connected successfully.');
@@ -38,7 +37,6 @@ mongoose.connect(MONGO_URL, { useNewUrlParser: true, useUnifiedTopology: true })
         process.exit(1); // Exit the process with failure
     });
 
-// Booking Schema and Model
 const bookingSchema = new mongoose.Schema({
     name: { type: String, required: true },
     occasion: { type: String, required: true },
@@ -49,7 +47,6 @@ const bookingSchema = new mongoose.Schema({
 
 const Booking = mongoose.model('Booking', bookingSchema);
 
-// Routes
 app.get('/getInfo', async (req, res) => {
     try {
         const bookings = await Booking.find();
@@ -105,9 +102,4 @@ app.post('/booking', async (req, res) => {
         }
         res.status(500).send('Error: ' + err);
     }
-});
-
-// Serve index.html for all remaining routes (for single-page applications)
-app.get('*', (req, res) => {
-    res.sendFile(__dirname + '/public/index.html');
 });

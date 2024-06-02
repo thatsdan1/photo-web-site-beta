@@ -1,0 +1,26 @@
+{
+    "rewrites":[
+        {"source": "/api/*", "destination": "http://localhost:3000/api/*"},
+        {"source": "/auth/*", "destination": "http://localhost:3000/auth/*"},
+        {"source": "/login", "destination": "http://localhost:3000/login"},
+        {"source": "/logout", "destination": "http://localhost:3000/logout"},
+        {"source": "/register", "destination": "http://localhost:3000/register"},
+        {"source": "/profile", "destination": "http://localhost:3000/profile"},
+        {"source": "/profile/*", "destination": "http://localhost:3000/profile/*"},
+        {"source": "/admin", "destination": "http://localhost:3000/admin"},
+        {"source": "/admin/*", "destination": "http://localhost:3000/admin/*"},
+        {"source": "/admin/users", "destination": "http://localhost:3000/admin/users"},
+        {"source": "/admin/users/*", "destination": "http://localhost:3000/admin/users/*"},
+        {"source": "/admin/roles", "destination": "http://localhost:3000/admin/roles"},
+        {"source": "/admin/roles/*", "destination": "http://localhost:3000/admin/roles/*"},
+        {"source": "/admin/permissions", "destination": "http://localhost:3000/admin/permissions"},
+        {"source": "/admin/permissions/*", "destination": "http://localhost:3000/admin/permissions/*"},
+        {"source": "/admin/roles/permissions", "destination": "http://localhost:3000/admin/roles/permissions"},
+        {"source": "/admin/roles/permissions/*", "destination": "http://localhost:3000/admin/roles/permissions/*"},
+        {"source": "/admin/users/roles", "destination": "http://localhost:3000/admin/users/roles"},
+        {"source": "/admin/users/roles/*", "destination": "http://localhost:3000/admin/users/roles/*"},
+        {"source": "/admin/roles/users", "destination": "http://localhost:3000/admin/roles/users"},
+        {"source": "/admin/roles/users/*", "destination": "http://localhost:3000/admin/roles/users/*"},
+        {"source": "/admin/roles/permissions", "destination": "http://localhost:3000/admin/"}
+    ]
+}
