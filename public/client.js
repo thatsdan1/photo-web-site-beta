@@ -80,7 +80,7 @@ document.addEventListener("DOMContentLoaded", function() {
             date: bookingForm.date.value,
         };
 
-        fetch('/booking', {
+        fetch('/api/booking', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -102,4 +102,5 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     });
 });
+
 

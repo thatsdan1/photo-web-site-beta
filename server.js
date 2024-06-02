@@ -48,7 +48,7 @@ const bookingSchema = new mongoose.Schema({
 
 const Booking = mongoose.model('Booking', bookingSchema);
 
-app.get('/getInfo', async (req, res) => {
+app.get('/api/getInfo', async (req, res) => {
     try {
         const bookings = await Booking.find();
         res.json(bookings);
@@ -58,7 +58,7 @@ app.get('/getInfo', async (req, res) => {
     }
 });
 
-app.post('/booking', async (req, res) => {
+app.post('/api/booking', async (req, res) => {
     const { name, occasion, email, phone, date } = req.body;
     console.log('Received booking request:', req.body);
 
@@ -105,3 +105,4 @@ app.post('/booking', async (req, res) => {
         res.status(500).send('Error: ' + err);
     }
 });
+
