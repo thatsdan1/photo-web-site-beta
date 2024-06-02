@@ -1,26 +1,27 @@
 {
-    "rewrites":[
-        {"source": "/api/*", "destination": "http://localhost:3000/api/*"},
-        {"source": "/auth/*", "destination": "http://localhost:3000/auth/*"},
-        {"source": "/login", "destination": "http://localhost:3000/login"},
-        {"source": "/logout", "destination": "http://localhost:3000/logout"},
-        {"source": "/register", "destination": "http://localhost:3000/register"},
-        {"source": "/profile", "destination": "http://localhost:3000/profile"},
-        {"source": "/profile/*", "destination": "http://localhost:3000/profile/*"},
-        {"source": "/admin", "destination": "http://localhost:3000/admin"},
-        {"source": "/admin/*", "destination": "http://localhost:3000/admin/*"},
-        {"source": "/admin/users", "destination": "http://localhost:3000/admin/users"},
-        {"source": "/admin/users/*", "destination": "http://localhost:3000/admin/users/*"},
-        {"source": "/admin/roles", "destination": "http://localhost:3000/admin/roles"},
-        {"source": "/admin/roles/*", "destination": "http://localhost:3000/admin/roles/*"},
-        {"source": "/admin/permissions", "destination": "http://localhost:3000/admin/permissions"},
-        {"source": "/admin/permissions/*", "destination": "http://localhost:3000/admin/permissions/*"},
-        {"source": "/admin/roles/permissions", "destination": "http://localhost:3000/admin/roles/permissions"},
-        {"source": "/admin/roles/permissions/*", "destination": "http://localhost:3000/admin/roles/permissions/*"},
-        {"source": "/admin/users/roles", "destination": "http://localhost:3000/admin/users/roles"},
-        {"source": "/admin/users/roles/*", "destination": "http://localhost:3000/admin/users/roles/*"},
-        {"source": "/admin/roles/users", "destination": "http://localhost:3000/admin/roles/users"},
-        {"source": "/admin/roles/users/*", "destination": "http://localhost:3000/admin/roles/users/*"},
-        {"source": "/admin/roles/permissions", "destination": "http://localhost:3000/admin/"}
+    "rewrites": [
+      { "source": "/api/(.*)", "destination": "/api/index.js" },
+      { "source": "/auth/(.*)", "destination": "/auth/index.js" },
+      { "source": "/login", "destination": "/login/index.js" },
+      { "source": "/logout", "destination": "/logout/index.js" },
+      { "source": "/register", "destination": "/register/index.js" },
+      { "source": "/profile", "destination": "/profile/index.js" },
+      { "source": "/profile/(.*)", "destination": "/profile/index.js" },
+      { "source": "/admin", "destination": "/admin/index.js" },
+      { "source": "/admin/(.*)", "destination": "/admin/index.js" },
+      { "source": "/admin/users", "destination": "/admin/users/index.js" },
+      { "source": "/admin/users/(.*)", "destination": "/admin/users/index.js" },
+      { "source": "/admin/roles", "destination": "/admin/roles/index.js" },
+      { "source": "/admin/roles/(.*)", "destination": "/admin/roles/index.js" },
+      { "source": "/admin/permissions", "destination": "/admin/permissions/index.js" },
+      { "source": "/admin/permissions/(.*)", "destination": "/admin/permissions/index.js" },
+      { "source": "/admin/roles/permissions", "destination": "/admin/roles/permissions/index.js" },
+      { "source": "/admin/roles/permissions/(.*)", "destination": "/admin/roles/permissions/index.js" },
+      { "source": "/admin/users/roles", "destination": "/admin/users/roles/index.js" },
+      { "source": "/admin/users/roles/(.*)", "destination": "/admin/users/roles/index.js" },
+      { "source": "/admin/roles/users", "destination": "/admin/roles/users/index.js" },
+      { "source": "/admin/roles/users/(.*)", "destination": "/admin/roles/users/index.js" },
+      { "source": "/admin/roles/permissions", "destination": "/admin/roles/permissions/index.js" }
     ]
-}
+  }
+  

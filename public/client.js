@@ -57,13 +57,12 @@ document.addEventListener("DOMContentLoaded", function() {
         }
         slideIndex++;
         if (slideIndex > slides.length) { slideIndex = 1 }
+        for (i = 0; i < dots.length; i++) {
+            dots[i].className = dots[i].className.replace(" active", "");
+        }
         slides[slideIndex - 1].style.display = "block";
-        slides[slideIndex - 1].classList.add("active");
-        if (dots.length > 0) {
-            for (i = 0; i < dots.length; i++) {
-                dots[i].classList.remove("active");
-            }
-            dots[slideIndex - 1].classList.add("active");
+        if (dots[slideIndex - 1]) {
+            dots[slideIndex - 1].className += " active";
         }
         setTimeout(showSlides, 2000); // Change image every 2 seconds
     }
@@ -80,7 +79,7 @@ document.addEventListener("DOMContentLoaded", function() {
             date: bookingForm.date.value,
         };
 
-        fetch('http://localhost:8000/booking', {
+        fetch('/api/submit-form', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -100,3 +99,4 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     });
 });
+
