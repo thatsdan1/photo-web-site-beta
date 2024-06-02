@@ -80,7 +80,7 @@ document.addEventListener("DOMContentLoaded", function() {
             date: bookingForm.date.value,
         };
 
-        fetch('http://localhost:8000/booking', {
+        fetch('/booking', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
