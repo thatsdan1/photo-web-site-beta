@@ -97,8 +97,3 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     });
 });
-
-
-
-
-

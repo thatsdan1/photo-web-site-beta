@@ -13,7 +13,10 @@ const MONGO_URL = process.env.MONGO_URL;
 
 mongoose.connect(MONGO_URL, { useNewUrlParser: true, useUnifiedTopology: true })
     .then(() => console.log('Database connected successfully'))
-    .catch(error => console.error('Failed to connect to MongoDB:', error));
+    .catch(error => {
+        console.error('Failed to connect to MongoDB:', error);
+        process.exit(1); // Exit the process with failure
+    });
 
 const bookingSchema = new mongoose.Schema({
     name: { type: String, required: true },
