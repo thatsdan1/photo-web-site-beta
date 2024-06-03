@@ -18,7 +18,7 @@ mongoose.connect(MONGO_URL, { useNewUrlParser: true, useUnifiedTopology: true })
 const bookingSchema = new mongoose.Schema({
     name: { type: String, required: true },
     occasion: { type: String, required: true },
-    email: { type: String, required: true, unique: true, match: /.+\@.+\..+/ },
+    email: { type: String, required: true, match: /.+\@.+\..+/ },
     phone: { type: Number, required: true, min: 1000000000, max: 9999999999 },
     date: { type: String, required: true, match: /^\d{4}-\d{2}-\d{2}$/ }
 });
