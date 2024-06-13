@@ -10,7 +10,7 @@ const router = express.Router();
 
 const MONGO_URL = process.env.MONGO_URL || 'mongodb://localhost:27017/photography';
 
-mongoose.connect(MONGO_URL, { useNewUrlParser: true, useUnifiedTopology: true })
+mongoose.connect(MONGO_URL)
     .then(() => console.log('Database connected successfully'))
     .catch(error => {
         console.error('Failed to connect to MongoDB:', error);
@@ -89,3 +89,4 @@ app.use('/api', router);
 
 export default app;
 export const handler = serverless(app);
+

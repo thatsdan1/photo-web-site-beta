@@ -112,3 +112,4 @@ app.post('/api/booking', async (req, res) => {
         res.status(500).send('Error: ' + err);
     }
 });
+
