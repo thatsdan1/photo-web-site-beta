@@ -1,16 +1,13 @@
 document.addEventListener("DOMContentLoaded", function() {
+    // Mobile menu toggle
     const menu = document.querySelector('#mobile-menu');
     const menuLinks = document.querySelector('.navbar__menu');
-    const bookButtons = document.querySelectorAll('.book-btn');
-    const modal = document.getElementById('bookingModal');
-    const closeBtn = document.querySelector('.close-btn');
-    const bookingForm = document.getElementById('bookingForm');
-
     menu.addEventListener('click', function() {
         menu.classList.toggle('is-active');
         menuLinks.classList.toggle('active');
     });
 
+    // Smooth scrolling
     document.querySelectorAll('.navbar__links, .button').forEach(link => {
         link.addEventListener('click', function(e) {
             if (this.hash !== "") {
@@ -25,25 +22,26 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     });
 
+    // Modal functionality
+    const bookButtons = document.querySelectorAll('.book-btn');
+    const modal = document.getElementById('bookingModal');
+    const closeBtn = document.querySelector('.close-btn');
     bookButtons.forEach(button => {
         button.addEventListener('click', () => {
             modal.style.display = 'block';
         });
     });
-
     closeBtn.addEventListener('click', () => {
         modal.style.display = 'none';
     });
-
     window.addEventListener('click', (e) => {
         if (e.target == modal) {
             modal.style.display = 'none';
         }
     });
 
+    // Slideshow functionality
     let slideIndex = 0;
-    showSlides();
-
     function showSlides() {
         let i;
         const slides = document.getElementsByClassName("mySlides");
@@ -54,7 +52,6 @@ document.addEventListener("DOMContentLoaded", function() {
         slideIndex++;
         if (slideIndex > slides.length) { slideIndex = 1 }
         slides[slideIndex - 1].style.display = "block";
-        slides[slideIndex - 1].classList.add("active");
         if (dots.length > 0) {
             for (i = 0; i < dots.length; i++) {
                 dots[i].classList.remove("active");
@@ -63,7 +60,10 @@ document.addEventListener("DOMContentLoaded", function() {
         }
         setTimeout(showSlides, 2000); // Change image every 2 seconds
     }
+    showSlides();
 
+    // Form submission
+    const bookingForm = document.getElementById('bookingForm');
     bookingForm.addEventListener('submit', function(e) {
         e.preventDefault();
 
@@ -81,17 +81,18 @@ document.addEventListener("DOMContentLoaded", function() {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify(formData)
-        }).then(response => {
+        })
+        .then(response => {
             if (response.ok) {
                 alert('Booking submitted successfully');
-                modal.style.display = 'none';
                 bookingForm.reset();
             } else {
                 response.text().then(text => {
                     alert('Error submitting booking: ' + text);
                 });
             }
-        }).catch(error => {
+        })
+        .catch(error => {
             console.error('Error:', error);
             alert('Error submitting booking: ' + error.message);
         });
