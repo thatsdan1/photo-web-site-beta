@@ -113,3 +113,7 @@ app.post('/api/booking', async (req, res) => {
     }
 });
 
+export default app;
+export const handler = serverless(app);
+
+

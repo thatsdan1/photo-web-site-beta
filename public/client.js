@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 document.addEventListener("DOMContentLoaded", function() {
     // Mobile menu toggle
     const menu = document.querySelector('#mobile-menu');
@@ -99,7 +99,6 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     });
 });
-=======
 document.addEventListener("DOMContentLoaded", function() {
     // Mobile menu toggle
     const menu = document.querySelector('#mobile-menu');
@@ -200,4 +199,4 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     });
 });
->>>>>>> origin/main
+

@@ -2,15 +2,16 @@ import express from 'express';
 import mongoose from 'mongoose';
 import bodyParser from 'body-parser';
 import nodemailer from 'nodemailer';
-import serverless from 'serverless-http';
-import morgan from 'morgan';
+import dotenv from 'dotenv';
+
+dotenv.config();
 
 const app = express();
 const router = express.Router();
 
 const MONGO_URL = process.env.MONGO_URL || 'mongodb://localhost:27017/photography';
 
-mongoose.connect(MONGO_URL)
+mongoose.connect(MONGO_URL, { useNewUrlParser: true, useUnifiedTopology: true })
     .then(() => console.log('Database connected successfully'))
     .catch(error => {
         console.error('Failed to connect to MongoDB:', error);
@@ -27,9 +28,8 @@ const bookingSchema = new mongoose.Schema({
 
 const Booking = mongoose.model('Booking', bookingSchema);
 
-app.use(morgan('dev')); // Adding Morgan for logging HTTP requests
-app.use(bodyParser.json()); // Middleware for parsing application/json
-app.use(bodyParser.urlencoded({ extended: true })); // Middleware for parsing application/x-www-form-urlencoded
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use((req, res, next) => {
     res.header("Access-Control-Allow-Origin", "*");
@@ -80,8 +80,7 @@ router.post('/booking', async (req, res) => {
         if (err.name === 'ValidationError') {
             return res.status(400).send('Validation Error: ' + err.message);
         }
-        console.error(err); // Log the entire error object
-        res.status(500).send('Error: ' + err.message);
+        res.status(500).send('Error: ' + err);
     }
 });
 
@@ -89,4 +88,3 @@ app.use('/api', router);
 
 export default app;
 export const handler = serverless(app);
-
