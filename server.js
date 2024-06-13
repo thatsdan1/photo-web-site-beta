@@ -3,6 +3,7 @@ import mongoose from 'mongoose';
 import dotenv from 'dotenv';
 import bodyParser from 'body-parser';
 import nodemailer from 'nodemailer';
+import path from 'path';
 import winston from 'winston';
 
 dotenv.config();
@@ -111,5 +112,11 @@ app.post('/api/booking', async (req, res) => {
         res.status(500).send('Error: ' + err);
     }
 });
+
+// Serve index.html for all other routes to support client-side routing
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public', 'index.html'));
+});
+
 
 
