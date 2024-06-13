@@ -3,12 +3,25 @@ import mongoose from 'mongoose';
 import dotenv from 'dotenv';
 import bodyParser from 'body-parser';
 import nodemailer from 'nodemailer';
+import winston from 'winston';
 
 dotenv.config();
 
 const app = express();
 const PORT = process.env.PORT || 8000;
 const MONGO_URL = process.env.MONGO_URL;
+
+// Setup Winston logger
+const logger = winston.createLogger({
+  level: 'info',
+  format: winston.format.combine(
+    winston.format.timestamp(),
+    winston.format.json()
+  ),
+  transports: [
+    new winston.transports.File({ filename: 'logs/app.log' })
+  ],
+});
 
 app.use(bodyParser.json());
 app.use(express.static('public'));
@@ -23,13 +36,13 @@ app.use((req, res, next) => {
 
 mongoose.connect(MONGO_URL, { useNewUrlParser: true, useUnifiedTopology: true })
     .then(() => {
-        console.log('Database connected successfully.');
+        logger.info('Database connected successfully.');
         app.listen(PORT, () => {
-            console.log(`Server running on port ${PORT}`);
+            logger.info(`Server running on port ${PORT}`);
         });
     })
     .catch(error => {
-        console.error('Failed to connect to MongoDB:', error);
+        logger.error('Failed to connect to MongoDB:', error);
         process.exit(1);
     });
 
@@ -48,19 +61,19 @@ app.get('/api/getInfo', async (req, res) => {
         const bookings = await Booking.find();
         res.json(bookings);
     } catch (error) {
-        console.error('Error getting info:', error);
+        logger.error('Error getting info:', error);
         res.status(500).send('Internal server error');
     }
 });
 
 app.post('/api/booking', async (req, res) => {
     const { name, occasion, email, phone, date } = req.body;
-    console.log('Received booking request:', req.body);
+    logger.info('Received booking request:', req.body);
 
     try {
         const existingBooking = await Booking.findOne({ email, date });
         if (existingBooking) {
-            console.error('Booking already exists for this email and date.');
+            logger.error('Booking already exists for this email and date.');
             return res.status(400).send('Booking already exists for this email and date.');
         }
 
@@ -85,17 +98,18 @@ app.post('/api/booking', async (req, res) => {
 
         transporter.sendMail(mailOptions, (error, info) => {
             if (error) {
-                console.error('Error sending email:', error);
+                logger.error('Error sending email:', error);
             } else {
-                console.log('Email sent: ' + info.response);
+                logger.info('Email sent: ' + info.response);
             }
         });
 
     } catch (err) {
-        console.error('Error submitting booking:', err);
+        logger.error('Error submitting booking:', err);
         if (err.name === 'ValidationError') {
             return res.status(400).send('Validation Error: ' + err.message);
         }
         res.status(500).send('Error: ' + err);
     }
 });
+

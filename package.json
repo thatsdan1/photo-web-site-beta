@@ -68,7 +68,8 @@
     "minimatch": "^3.1.2",
     "mongodb": "^6.6.2",
     "mongodb-connection-string-url": "^3.0.1",
-    "mongoose": "^8.4.0",
+    "mongoose": "^8.4.1",
+    "morgan": "^1.10.0",
     "mpath": "^0.9.0",
     "mquery": "^5.0.0",
     "ms": "^2.0.0",
@@ -94,6 +95,7 @@
     "semver": "^7.6.2",
     "send": "^0.18.0",
     "serve-static": "^1.15.0",
+    "serverless-http": "^3.2.0",
     "set-function-length": "^1.2.2",
     "setprototypeof": "^1.2.0",
     "side-channel": "^1.0.6",
@@ -115,7 +117,8 @@
     "whatwg-url": "^13.0.0"
   },
   "scripts": {
-    "start": "nodemon server.js"
+    "start": "nodemon server.js",
+    "build": "echo 'No build necessary for this project'"
   },
   "author": "Daniel Odetoye",
   "license": "ISC",
