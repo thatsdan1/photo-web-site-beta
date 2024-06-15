@@ -17,15 +17,21 @@ const Booking = mongoose.model('Booking', bookingSchema);
 router.post('/', async (req, res) => {
   const { name, occasion, email, phone, date } = req.body;
 
+  console.log('Received booking request:', req.body);
+
   try {
+    console.log('Checking for existing booking...');
     const existingBooking = await Booking.findOne({ email, date });
     if (existingBooking) {
+      console.log('Booking already exists.');
       return res.status(400).send('Booking already exists for this email and date.');
     }
 
+    console.log('Creating new booking...');
     const newBooking = new Booking({ name, occasion, email, phone, date });
     await newBooking.save();
 
+    console.log('Sending email...');
     const transporter = nodemailer.createTransport({
       service: 'gmail',
       auth: {
