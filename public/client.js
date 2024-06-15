@@ -11,6 +11,7 @@ document.addEventListener("DOMContentLoaded", function() {
         menuLinks.classList.toggle('active');
     });
 
+    // Smooth scroll
     document.querySelectorAll('.navbar__links, .button').forEach(link => {
         link.addEventListener('click', function(e) {
             if (this.hash !== "") {
@@ -19,12 +20,14 @@ document.addEventListener("DOMContentLoaded", function() {
                 document.querySelector(hash).scrollIntoView({
                     behavior: 'smooth'
                 });
+                // Close the mobile menu after clicking a link
                 menu.classList.remove('is-active');
                 menuLinks.classList.remove('active');
             }
         });
     });
 
+    // Modal functionality
     bookButtons.forEach(button => {
         button.addEventListener('click', () => {
             modal.style.display = 'block';
@@ -41,6 +44,7 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     });
 
+    // Slideshow functionality
     let slideIndex = 0;
     showSlides();
 
@@ -56,6 +60,7 @@ document.addEventListener("DOMContentLoaded", function() {
         setTimeout(showSlides, 2000); // Change image every 2 seconds
     }
 
+    // Handle form submission
     bookingForm.addEventListener('submit', function(e) {
         e.preventDefault();
 
@@ -79,13 +84,11 @@ document.addEventListener("DOMContentLoaded", function() {
                 modal.style.display = 'none';
                 bookingForm.reset();
             } else {
-                response.text().then(text => {
-                    alert('Error submitting booking: ' + text);
-                });
+                alert('Error submitting booking');
             }
         }).catch(error => {
             console.error('Error:', error);
-            alert('Error submitting booking: ' + error.message);
+            alert('Error submitting booking');
         });
     });
 });
