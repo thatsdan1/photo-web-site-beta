@@ -35,7 +35,7 @@ mongoose.connect(MONGO_URL, { useNewUrlParser: true, useUnifiedTopology: true })
 const bookingSchema = new mongoose.Schema({
     name: { type: String, required: true },
     occasion: { type: String, required: true },
-    email: { type: String, required: true, match: /.+\@.+\..+/ },
+    email: { type: String, required: true, unique: true, match: /.+\@.+\..+/ },
     phone: { type: String, required: true },
     date: { type: String, required: true, match: /^\d{4}-\d{2}-\d{2}$/ }
 });
@@ -54,15 +54,18 @@ app.get('/api/getInfo', async (req, res) => {
 
 app.post('/api/booking', async (req, res) => {
     const { name, occasion, email, phone, date } = req.body;
+    console.log('Received booking request:', req.body);
 
     try {
         const existingBooking = await Booking.findOne({ email, date });
         if (existingBooking) {
+            console.log('Booking already exists for this email and date.');
             return res.status(400).send('Booking already exists for this email and date.');
         }
 
         const newBooking = new Booking({ name, occasion, email, phone, date });
         await newBooking.save();
+        console.log('Booking added successfully!');
         res.status(200).send('Booking added successfully!');
 
         const transporter = nodemailer.createTransport({
