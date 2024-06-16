@@ -399,7 +399,6 @@ img {
     .text {font-size: 11px}
 }
 
-
 /* Responsive Hero section */
 @media screen and (max-width: 768px) {
     .main__container {
