@@ -45,8 +45,10 @@ const transporter = nodemailer.createTransport({
 
 // Routes
 app.post('/api/booking', async (req, res) => {
+    console.log('Received booking request:', req.body);
     try {
         const booking = new Booking(req.body);
+        console.log('Saving booking to database');
         await booking.save();
 
         const mailOptions = {
@@ -56,8 +58,10 @@ app.post('/api/booking', async (req, res) => {
             text: `You have a new booking from ${req.body.name} (${req.body.email}).`
         };
 
+        console.log('Sending email notification');
         await transporter.sendMail(mailOptions);
 
+        console.log('Booking added successfully');
         res.status(200).send('Booking added successfully!');
     } catch (error) {
         console.error('Error saving booking:', error);
