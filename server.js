@@ -61,10 +61,13 @@ app.post('/api/booking', async (req, res) => {
         res.status(200).send('Booking added successfully!');
     } catch (error) {
         console.error('Error saving booking:', error);
-        res.status(500).send('Error submitting booking');
+        if (error.code === 11000) {
+            res.status(400).send('Duplicate booking');
+        } else {
+            res.status(500).send('Error submitting booking');
+        }
     }
 });
-
 
 // Start the server
 app.listen(port, () => {
