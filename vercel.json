@@ -3,7 +3,10 @@
     "builds": [
       {
         "src": "server.js",
-        "use": "@vercel/node"
+        "use": "@vercel/node",
+        "config": {
+          "maxDuration": 10
+        }
       },
       {
         "src": "public/**",
@@ -13,11 +16,7 @@
     "routes": [
       { "src": "/api/(.*)", "dest": "/server.js" },
       { "src": "/(.*)", "dest": "/public/$1" }
-    ],
-    "functions": {
-      "api/booking": {
-        "maxDuration": 10
-      }
-    }
+    ]
   }
+  
   
