@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ThroughDansLens</title>
+    <title>Book a Session - ThroughDansLens</title>
     <link rel="stylesheet" href="styles.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -34,18 +34,54 @@
         </div>
     </nav>
 
-    <!-- Home section -->
-    <div class="home">
-        <div class="home__container">
-            <h1> <span class="highlight"> Welcome to ThroughDansLens</span></h1>
-            <div class="gallery">
-                <div class="gallery__item"></div>
-                <div class="gallery__item"></div>
-                <div class="gallery__item"></div>
-                <div class="gallery__item"></div>
-                <div class="gallery__item"></div>
-                <div class="gallery__item"></div>
+    <!-- Book section -->
+    <div class="book">
+        <div class="book__container">
+            <h1>Book a Session</h1>
+
+            <!-- Packages Section -->
+            <div class="packages">
+                <h2>Packages</h2>
+                <div class="package">
+                    <h3>Bronze Package</h3>
+                    <p>7 edited pictures, one location, client will receive all raw photos - $100</p>
+                </div>
+                <div class="package">
+                    <h3>Silver Package</h3>
+                    <p>10 pictures (80), location of choice, can have all raw pictures - $200</p>
+                </div>
+                <div class="package">
+                    <h3>Gold Package</h3>
+                    <p>15 edited pictures (120), location of choice, all raw edited pictures - $275</p>
+                </div>
+                <div class="package">
+                    <h3>Studio Gold Package</h3>
+                    <p>10 edited pictures, studio fee not included - $230</p>
+                </div>
+                <div class="package">
+                    <h3>Studio Diamond Package</h3>
+                    <p>15 edited pictures, studio fee not included - $300</p>
+                </div>
             </div>
+
+            <form id="bookingForm" action="/api/booking" method="post">
+                <label for="name">Full name *</label>
+                <input type="text" id="name" name="name" required>
+
+                <label for="email">Email *</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="phone">Phone number</label>
+                <input type="tel" id="phone" name="phone" placeholder="###-###-####">
+
+                <label for="date">Project date</label>
+                <input type="date" id="date" name="date">
+
+                <label for="budget">What is your Package?</label>
+                <input type="text" id="budget" name="budget">
+                
+                <button type="submit">Submit</button>
+            </form>
         </div>
     </div>
 

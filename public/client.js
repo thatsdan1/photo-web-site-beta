@@ -1,20 +1,17 @@
 document.addEventListener("DOMContentLoaded", function() {
     const menu = document.querySelector('#mobile-menu');
     const menuLinks = document.querySelector('.navbar__menu');
-    const bookButtons = document.querySelectorAll('.book-btn');
-    const modal = document.getElementById('bookingModal');
-    const closeBtn = document.querySelector('.close-btn');
-    const bookingForm = document.getElementById('bookingForm');
+    const galleryItems = document.querySelectorAll('.gallery__item');
 
     menu.addEventListener('click', function() {
         menu.classList.toggle('is-active');
         menuLinks.classList.toggle('active');
     });
 
-    // Smooth scroll
+    // Smooth scroll for internal links
     document.querySelectorAll('.navbar__links, .button').forEach(link => {
-        link.addEventListener('click', function(e) {
-            if (this.hash !== "") {
+        if (link.hash) {
+            link.addEventListener('click', function(e) {
                 e.preventDefault();
                 const hash = this.hash;
                 document.querySelector(hash).scrollIntoView({
@@ -23,84 +20,17 @@ document.addEventListener("DOMContentLoaded", function() {
                 // Close the mobile menu after clicking a link
                 menu.classList.remove('is-active');
                 menuLinks.classList.remove('active');
-            }
-        });
-    });
-
-    // Modal functionality
-    bookButtons.forEach(button => {
-        button.addEventListener('click', () => {
-            modal.style.display = 'block';
-        });
-    });
-
-    closeBtn.addEventListener('click', () => {
-        modal.style.display = 'none';
-    });
-
-    window.addEventListener('click', (e) => {
-        if (e.target == modal) {
-            modal.style.display = 'none';
-        }
-    });
-
-    // Slide show functionality
-    let slideIndex = 0;
-    showSlides();
-
-    function showSlides() {
-        let i;
-        const slides = document.getElementsByClassName("mySlides");
-        const dots = document.getElementsByClassName("dot");
-        for (i = 0; i < slides.length; i++) {
-            slides[i].style.display = "none";
-        }
-        slideIndex++;
-        if (slideIndex > slides.length) { slideIndex = 1 }
-        slides[slideIndex - 1].style.display = "block";
-        slides[slideIndex - 1].classList.add("active");
-        if (dots.length > 0) {
-            for (i = 0; i < dots.length; i++) {
-                dots[i].classList.remove("active");
-            }
-            dots[slideIndex - 1].classList.add("active");
-        }
-        setTimeout(showSlides, 2000); // Change image every 2 seconds
-    }
-
-    // Handle form submission
-    bookingForm.addEventListener('submit', async function (e) {
-        e.preventDefault();
-
-        const formData = new FormData(bookingForm);
-        const data = {
-            name: formData.get('name'),
-            occasion: formData.get('occasion'),
-            email: formData.get('email'),
-            phone: formData.get('phone'),
-            date: formData.get('date')
-        };
-
-        try {
-            const response = await fetch('/api/booking', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(data)
             });
-
-            const result = await response.text();
-            if (response.ok) {
-                alert('Booking added successfully!');
-                modal.style.display = 'none';
-                bookingForm.reset();
-            } else {
-                alert('Error submitting booking: ' + result);
-            }
-        } catch (error) {
-            console.error('Error submitting booking:', error);
-            alert('Error submitting booking: ' + error.message);
         }
+    });
+
+    // Hover animation for gallery items
+    galleryItems.forEach(item => {
+        item.addEventListener('mouseenter', () => {
+            item.style.transform = 'scale(1.05)';
+        });
+        item.addEventListener('mouseleave', () => {
+            item.style.transform = 'scale(1)';
+        });
     });
 });

@@ -10,7 +10,7 @@ dotenv.config();
 
 // Initialize Express
 const app = express();
-const port = process.env.PORT || 8000;
+const port = process.env.PORT || 8080; // Ensure it listens on port 8080
 
 // Middleware
 app.use(bodyParser.json());
