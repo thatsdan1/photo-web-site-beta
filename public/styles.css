@@ -102,16 +102,27 @@
 
 .gallery {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
+    grid-template-columns: repeat(3, 1fr); /* Defines three equal-width columns */
+    gap: 20px; /* Adds a 20px gap between grid items */
 }
 
 .gallery__item {
     background-color: #333;
-    height: 200px;
+    height: 555px; /* Increased height of the gallery items */
     border-radius: 10px;
-    transition: transform 0.3s ease-in-out;
+    overflow: hidden; /* Ensures the image does not overflow the container */
+    display: flex; /* Centers the content within the item */
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.3s ease-in-out; /* Smooth transition for transform effects */
 }
+.gallery__item img {
+    width: 100%; /* Ensures the image takes up the full width of the container */
+    height: 100%; /* Ensures the image takes up the full height of the container */
+    object-fit: cover; /* Ensures the image covers the entire container without distorting */
+    border-radius: 10px; /* Optional: keeps the same rounded corners as the container */
+}
+
 
 .gallery__item:hover {
     transform: scale(1.05);
