@@ -21,8 +21,8 @@ const app = express();
 const port = process.env.PORT || 8080;
 
 // Middleware
-app.use(bodyParser.json());  // To parse JSON data from client
-app.use(cors());  // To handle CORS issues
+app.use(bodyParser.json());
+app.use(cors());
 
 // MySQL connection
 const db = mysql.createConnection({
@@ -41,7 +41,7 @@ db.connect((err) => {
     }
 });
 
-// Nodemailer transporter setup
+// Nodemailer transporter
 const transporter = nodemailer.createTransport({
     host: "smtp.gmail.com",
     port: 465, // Use 465 for secure connections (SSL)
@@ -58,7 +58,7 @@ app.post('/api/booking', (req, res) => {
 
     // Validate that all required fields are present
     if (!name || !email || !date || !message) {
-        return res.status(400).json({ error: 'Missing required fields.' });
+        return res.status(400).json({ error: 'Missing required fields' });
     }
 
     console.log('Received booking:', { name, email, phone, date, message });
@@ -68,7 +68,7 @@ app.post('/api/booking', (req, res) => {
     db.query(query, [name, email, date, '14:00:00', message], (err, result) => {
         if (err) {
             console.error('Error inserting booking:', err);
-            return res.status(500).json({ error: 'Error saving booking.' });
+            return res.status(500).send('Error saving booking');
         }
 
         // Send email notification
@@ -82,10 +82,10 @@ app.post('/api/booking', (req, res) => {
         transporter.sendMail(mailOptions, (err, info) => {
             if (err) {
                 console.error('Error sending email:', err);
-                return res.status(500).json({ error: 'Error sending email.' });
+                return res.status(500).send('Error sending email');
             }
 
-            res.status(200).json({ message: 'Booking added and email sent successfully!' });
+            res.status(200).send('Booking added and email sent successfully!');
         });
     });
 });
