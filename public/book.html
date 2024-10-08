@@ -31,7 +31,7 @@
                     <a href="faq.html" class="navbar__links">FAQ</a>
                 </li>
                 <li class="navbar__item">
-                    <a href="photogall.html" class="navbar__links">Gallery</a>
+                    <a href="gallery.html" class="navbar__links">Gallery</a>
                 </li>
             </ul>
         </div>
@@ -51,11 +51,11 @@
                 </div>
                 <div class="package">
                     <h3>Silver Package</h3>
-                    <p>10 pictures (80), location of choice, can have all raw pictures - $200</p>
+                    <p>10 pictures, location of choice, can have all raw pictures - $200</p>
                 </div>
                 <div class="package">
                     <h3>Gold Package</h3>
-                    <p>15 edited pictures (120), location of choice, all raw edited pictures - $275</p>
+                    <p>15 edited pictures, location of choice, all raw edited pictures - $275</p>
                 </div>
                 <div class="package">
                     <h3>Studio Gold Package</h3>
@@ -67,7 +67,8 @@
                 </div>
             </div>
 
-            <form id="bookingForm" action="/api/booking" method="post">
+            <!-- Booking Form -->
+            <form id="bookingForm">
                 <label for="name">Full name *</label>
                 <input type="text" id="name" name="name" required>
 
@@ -80,8 +81,8 @@
                 <label for="date">Project date</label>
                 <input type="date" id="date" name="date">
 
-                <label for="budget">What is your Package?</label>
-                <input type="text" id="budget" name="budget">
+                <label for="message">Package Details</label>
+                <input type="text" id="message" name="message">
                 
                 <button type="submit">Submit</button>
             </form>
@@ -116,6 +117,7 @@
             </div>
         </div>
     </div>
+
     <script src="client.js"></script>
 </body>
 </html>

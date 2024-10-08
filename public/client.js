@@ -1,36 +1,37 @@
 document.addEventListener("DOMContentLoaded", function() {
-    const menu = document.querySelector('#mobile-menu');
-    const menuLinks = document.querySelector('.navbar__menu');
-    const galleryItems = document.querySelectorAll('.gallery__item');
+    const bookingForm = document.getElementById('bookingForm');
+    
+    bookingForm.addEventListener('submit', function(e) {
+        e.preventDefault(); // Prevent the default form submission
 
-    menu.addEventListener('click', function() {
-        menu.classList.toggle('is-active');
-        menuLinks.classList.toggle('active');
-    });
+        // Collect form data
+        const formData = {
+            name: document.getElementById('name').value,
+            email: document.getElementById('email').value,
+            phone: document.getElementById('phone').value,
+            date: document.getElementById('date').value,
+            message: document.getElementById('message').value
+        };
 
-    // Smooth scroll for internal links
-    document.querySelectorAll('.navbar__links, .button').forEach(link => {
-        if (link.hash) {
-            link.addEventListener('click', function(e) {
-                e.preventDefault();
-                const hash = this.hash;
-                document.querySelector(hash).scrollIntoView({
-                    behavior: 'smooth'
-                });
-                // Close the mobile menu after clicking a link
-                menu.classList.remove('is-active');
-                menuLinks.classList.remove('active');
-            });
-        }
-    });
+        // Log data before sending (for debugging)
+        console.log("Form Data being sent: ", formData);
 
-    // Hover animation for gallery items
-    galleryItems.forEach(item => {
-        item.addEventListener('mouseenter', () => {
-            item.style.transform = 'scale(1.05)';
-        });
-        item.addEventListener('mouseleave', () => {
-            item.style.transform = 'scale(1)';
+        // Send the form data as JSON
+        fetch('http://localhost:8080/api/booking', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(formData)
+        })
+        .then(response => response.json())
+        .then(data => {
+            console.log("Server Response: ", data);
+            alert('Booking added and email sent successfully!');
+        })
+        .catch((error) => {
+            console.error('Error:', error);
+            alert('There was an error with your booking.');
         });
     });
 });
