@@ -1,4 +1,4 @@
-Visit the site at: ThroughDanLens.com
+Visit the site at: [ThroughDanLens.com](https://www.throughdanlens.com)
 What is ThroughDanLens?
 
 ThroughDanLens is a photography business I founded to bring my passion for capturing moments to life. This site is a BETA version, showcasing a curated gallery of my work and a booking system for clients to schedule sessions with ease. Whether you’re here to explore creative visuals or book a session, ThroughDanLens is designed for an immersive and user-friendly experience.
