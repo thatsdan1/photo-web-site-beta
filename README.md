@@ -5,6 +5,8 @@ ThroughDanLens is a photography business I founded to bring my passion for captu
 
 Still Working on It 🚧
 This is a BETA version, and I'm continually refining features and adding new ones to enhance user experience.
+![image](https://github.com/user-attachments/assets/289034a1-1647-4e72-996b-b11c4ae6e8c6)
+
 
 Why I Created ThroughDanLens
 
