@@ -1,0 +1,123 @@
+body, html {
+  background: #222;
+  color: #eee;
+  font-family: 'Kumbh Sans', sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.main-header {
+  width: 100%;
+  padding: 32px 0 0 0;
+  background: #222;
+}
+.header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 32px;
+}
+.site-logo {
+  font-size: 2rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: #eee;
+}
+.navbar__menu {
+  display: flex;
+  gap: 32px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.navbar__links {
+  color: #eee;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 1.1rem;
+  transition: color 0.2s;
+}
+.navbar__links:hover {
+  color: #bdbdbd;
+}
+
+.faq-heading {
+  text-align: center;
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin: 48px 0 40px 0;
+  color: #eee;
+}
+
+.faq-list {
+  max-width: 700px;
+  margin: 0 auto 60px auto;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+.faq-box {
+  background: #292929;
+  border-radius: 14px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.10);
+  padding: 28px 28px 18px 28px;
+  color: #eee;
+  border: 1.5px solid #333;
+}
+.faq-box h2 {
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+  color: #f0f0f0;
+}
+.faq-box p, .faq-box ul {
+  font-size: 1.05rem;
+  color: #ccc;
+  margin: 0 0 0 0;
+}
+.faq-box ul {
+  margin-top: 8px;
+  margin-bottom: 0;
+  padding-left: 20px;
+}
+.faq-box li {
+  margin-bottom: 4px;
+}
+
+.footer__container {
+  background: #222 !important;
+  color: #eee;
+  text-align: center;
+  padding: 40px 0 20px 0;
+  margin-top: 40px;
+}
+.footer__links--wrapper {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 12px;
+}
+.footer__link--items {
+  margin: 0 16px;
+}
+.footer__link--items a {
+  color: #eee;
+  text-decoration: none;
+  margin: 0 8px;
+}
+.footer__link--items a:hover {
+  text-decoration: underline;
+}
+.website__rights {
+  color: #eee;
+  font-size: 0.95rem;
+  margin-top: 8px;
+}
+
+@media (max-width: 600px) {
+  .header-content { flex-direction: column; gap: 16px; padding: 0 12px; }
+  .faq-heading { font-size: 1.5rem; margin: 32px 0 24px 0; }
+  .faq-list { padding: 0 8px; }
+  .faq-box { padding: 16px 8px 10px 8px; }
+} 

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ThroughDansLens | Book</title>
+  <link rel="stylesheet" href="book.css">
+</head>
+<body>
+  <header class="main-header">
+    <div class="header-content">
+      <div class="site-logo">ThroughDansLens</div>
+      <nav class="navbar">
+        <ul class="navbar__menu">
+          <li><a href="index.html" class="navbar__links">Home</a></li>
+          <li><a href="book.html" class="navbar__links">Book</a></li>
+          <li><a href="faq.html" class="navbar__links">FAQ</a></li>
+          <li><a href="portfolio.html" class="navbar__links">Gallery</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <h1 class="booking-heading">Book a Session</h1>
+    <!-- Booking page photo: Change the src below to your own image -->
+    <div class="booking-photo-wrapper">
+      <img src="images/kc4 copy.jpg" alt="Booking Banner" class="booking-photo"><!-- CHANGE THIS PHOTO -->
+    </div>
+    <form class="booking-form">
+      <label for="name">First and Last Name *</label>
+      <input type="text" id="name" name="name" placeholder="First & Last Name Required" required>
+
+      <label for="email">Email address *</label>
+      <input type="email" id="email" name="email" placeholder="me@email.com" required>
+
+      <label for="phone">Phone number to contact you *</label>
+      <input type="tel" id="phone" name="phone" placeholder="4436788048" required>
+
+      <label for="date">Session Date *</label>
+      <input type="date" id="date" name="date" required>
+
+      <label for="address">Address (if not studio)</label>
+      <input type="text" id="address" name="address" placeholder="E.g. 742 Evergreen Terrace, Springfield">
+
+      <label for="session">Session Type *</label>
+      <select id="session" name="session" required>
+        <option value="">Select an option</option>
+        <option value="lifestyle">Lifestyle</option>
+        <option value="studio">Studio</option>
+        <option value="event">Event</option>
+        <option value="portrait">Portrait</option>
+        <option value="other">Other</option>
+      </select>
+
+      <label>Budget *</label>
+      <div class="radio-group">
+        <label><input type="radio" name="budget" value="$100-$200" required> $100-$200</label>
+        <label><input type="radio" name="budget" value="$200-$400"> $200-$400</label>
+        <label><input type="radio" name="budget" value="$400+"> $400+</label>
+      </div>
+
+      <label for="time1">First Preferred Time *</label>
+      <input type="time" id="time1" name="time1" required>
+
+      <label for="time2">Second Preferred Time</label>
+      <input type="time" id="time2" name="time2">
+
+      <label for="message">Tell us about your ideal look and style *</label>
+      <textarea id="message" name="message" rows="4" required></textarea>
+
+      <button type="submit">Submit Booking</button>
+    </form>
+  </main>
+
+  <footer class="footer__container">
+    <div class="footer__links--wrapper">
+      <div class="footer__link--items">
+        <h2>Contact</h2>
+        <a href="mailto:throughdanslens1@gmail.com">throughdanslens1@gmail.com</a>
+        <a href="tel:+14436788048">443-678-8048</a>
+      </div>
+    </div>
+    <p class="website__rights">© Daniel Odetoye 2024. All rights reserved</p>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,160 @@
+body, html {
+  background: #222;
+  color: #eee;
+  font-family: 'Kumbh Sans', sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.main-header {
+  width: 100%;
+  padding: 32px 0 0 0;
+  background: #222;
+}
+.header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 32px;
+}
+.site-logo {
+  font-size: 2rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: #eee;
+}
+.navbar__menu {
+  display: flex;
+  gap: 32px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.navbar__links {
+  color: #eee;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 1.1rem;
+  transition: color 0.2s;
+}
+.navbar__links:hover {
+  color: #bdbdbd;
+}
+
+.booking-heading {
+  text-align: center;
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin: 48px 0 40px 0;
+  color: #222;
+}
+
+.booking-form {
+  max-width: 500px;
+  margin: 0 auto 60px auto;
+  background: #222;
+  padding: 32px 32px 24px 32px;
+  border-radius: 16px;
+  box-shadow: 0 2px 16px rgba(0,0,0,0.07);
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  border: 2px solid #000;
+}
+.booking-form label {
+  font-weight: 600;
+  margin-bottom: 4px;
+  color: #eee;
+}
+.booking-form input,
+.booking-form select,
+.booking-form textarea {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #444;
+  border-radius: 6px;
+  font-size: 1rem;
+  background: #181818;
+  color: #eee;
+  margin-bottom: 8px;
+  box-sizing: border-box;
+  font-family: inherit;
+}
+.booking-form textarea {
+  resize: vertical;
+}
+.booking-form input[type="radio"] {
+  width: auto;
+  margin-right: 8px;
+}
+.radio-group {
+  display: flex;
+  gap: 18px;
+  margin-bottom: 8px;
+}
+.booking-form button[type="submit"] {
+  background: #eee;
+  color: #222;
+  border: none;
+  border-radius: 6px;
+  padding: 12px 0;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 8px;
+  transition: background 0.2s;
+}
+.booking-form button[type="submit"]:hover {
+  background: #bdbdbd;
+  color: #222;
+}
+
+.footer__container {
+  background: #222 !important;
+  color: #fff;
+  text-align: center;
+  padding: 40px 0 20px 0;
+  margin-top: 40px;
+}
+.footer__links--wrapper {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 12px;
+}
+.footer__link--items {
+  margin: 0 16px;
+}
+.footer__link--items a {
+  color: #fff;
+  text-decoration: none;
+  margin: 0 8px;
+}
+.footer__link--items a:hover {
+  text-decoration: underline;
+}
+.website__rights {
+  color: #fff;
+  font-size: 0.95rem;
+  margin-top: 8px;
+}
+
+@media (max-width: 600px) {
+  .header-content { flex-direction: column; gap: 16px; padding: 0 12px; }
+  .booking-form { padding: 18px 6px 12px 6px; }
+  .booking-heading { font-size: 1.5rem; margin: 32px 0 24px 0; }
+}
+
+.booking-photo-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 32px;
+}
+.booking-photo {
+  max-width: 100%;
+  max-height: 400px;
+  border-radius: 12px;
+  object-fit: cover;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.10);
+} 

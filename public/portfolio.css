@@ -1,0 +1,112 @@
+body, html {
+  background: #222;
+  color: #eee;
+  font-family: 'Kumbh Sans', sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.main-header {
+  width: 100%;
+  padding: 32px 0 0 0;
+  background: #222;
+}
+.header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 32px;
+}
+.site-logo {
+  font-size: 2rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: #eee;
+}
+.navbar__menu {
+  display: flex;
+  gap: 32px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.navbar__links {
+  color: #eee;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 1.1rem;
+  transition: color 0.2s;
+}
+.navbar__links:hover {
+  color: #bdbdbd;
+}
+
+.portfolio-title {
+  text-align: center;
+  font-size: 2.7rem;
+  font-weight: 800;
+  margin: 48px 0 40px 0;
+  color: #eee;
+}
+
+.portfolio-heading {
+  text-align: center;
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin: 48px 0 40px 0;
+  color: #222;
+}
+
+.masonry-gallery {
+  column-count: 3;
+  column-gap: 24px;
+  max-width: 1200px;
+  margin: 0 auto 60px auto;
+}
+.masonry-gallery img {
+  width: 100%;
+  margin-bottom: 24px;
+  border-radius: 12px;
+  display: block;
+  break-inside: avoid;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+}
+@media (max-width: 900px) {
+  .masonry-gallery { column-count: 2; }
+}
+@media (max-width: 600px) {
+  .header-content { flex-direction: column; gap: 16px; padding: 0 12px; }
+  .masonry-gallery { column-count: 1; }
+  .portfolio-heading { font-size: 1.5rem; margin: 32px 0 24px 0; }
+}
+
+.footer__container {
+  background: #222 !important;
+  color: #fff;
+  text-align: center;
+  padding: 40px 0 20px 0;
+  margin-top: 40px;
+}
+.footer__links--wrapper {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 12px;
+}
+.footer__link--items {
+  margin: 0 16px;
+}
+.footer__link--items a {
+  color: #fff;
+  text-decoration: none;
+  margin: 0 8px;
+}
+.footer__link--items a:hover {
+  text-decoration: underline;
+}
+.website__rights {
+  color: #fff;
+  font-size: 0.95rem;
+  margin-top: 8px;
+} 
